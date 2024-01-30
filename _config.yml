@@ -58,3 +58,4 @@ exclude:
   - scripts/
   - LICENSE
   - emsdk
+  - build
