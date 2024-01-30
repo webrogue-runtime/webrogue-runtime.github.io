@@ -9,9 +9,6 @@ set -ex
 # git submodule update --init external/uvwasi/
 # """
 
-emcmake cmake -B game/src/build -S game/src -DCMAKE_BUILD_TYPE=Release
-cmake --build game/src/build/ --target pack_artifacts -j
-
-emcmake cmake -B backed_game/src/build -S backed_game/src -DCMAKE_BUILD_TYPE=Release
-cmake --build backed_game/src/build --target pack_artifacts -j
+emcmake cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+cmake --build build --target pack_artifacts -j
 
