@@ -52,7 +52,7 @@ exclude:
   - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - backed_game/src/
+  - baked_game/src/
   - game/src/
   - external/
   - scripts/

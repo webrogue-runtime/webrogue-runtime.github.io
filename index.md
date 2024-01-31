@@ -14,7 +14,7 @@ Thanks to it's design, Webrogue offers the following key advantages:
 - [Open source](https://github.com/Destructor17/webrogue)
 
 Here are two online demos:
-- [Backed demo](backed_game/).
+- [Baked demo](baked_game/).
 - [Dynamic demo](game/).
 
 Webrogue is currently in active development and will change significantly, so it is not recommended for production use. 

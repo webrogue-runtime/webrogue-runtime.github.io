@@ -7,7 +7,7 @@ As mentioned in explanation of Webrogue's [portability](./portable), games and m
 But in fact it is not always so.
 
 Game as well as modifications can be "baked" into Webrogue. 
-Baking is originally used during debug process, but distribution of backed games is an option.
+Baking is originally used during debug process, but distribution of baked games is an option.
 Webrogue offers two baking methods:
 
 ## Native method

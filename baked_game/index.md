@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Backed demo
+title: Baked demo
 ---
 
 <div id="noJavaScript">

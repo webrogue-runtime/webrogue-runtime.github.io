@@ -88,14 +88,14 @@ make_webrogue_runtime(
     NATIVE_RUNTIME_MODS core log2048
     WEBROGUE_CORE_LIB webrogue_core
 )
-add_executable(webrogue_baked_game_asmjs "backed_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
+add_executable(webrogue_baked_game_asmjs "baked_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
 target_link_options(webrogue_baked_game_asmjs PRIVATE -sWASM=0)
 target_include_directories(webrogue_baked_game_asmjs PRIVATE ${WEBROGUE_ROOT_PATH}/external/libuv/include) 
 target_link_libraries(webrogue_baked_game_asmjs webrogue_output_sdl webrogue_core webrogue_runtime_native idbfs.js)
 target_include_directories(webrogue_baked_game_asmjs PRIVATE ${WEBROGUE_ROOT_PATH}/embedded_resources)
 
 
-add_executable(webrogue_baked_game_wasm "backed_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
+add_executable(webrogue_baked_game_wasm "baked_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
 target_link_options(webrogue_baked_game_wasm PRIVATE -sWASM=1)
 target_include_directories(webrogue_baked_game_wasm PRIVATE ${WEBROGUE_ROOT_PATH}/external/libuv/include) 
 target_link_libraries(webrogue_baked_game_wasm webrogue_output_sdl webrogue_core webrogue_runtime_native idbfs.js)
@@ -107,12 +107,12 @@ else()
     set(WEBROGUE_SECOUND_FILE_EXTENSION "")
 endif()
 
-set(BACKED_GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/backed_game)
+set(baked_game_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/baked_game)
 
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
     set(WEBROGUE_COPY_JS_MEM_COMMAND)
 else()
-    set(WEBROGUE_COPY_JS_MEM_COMMAND COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js.mem ${BACKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js.mem)
+    set(WEBROGUE_COPY_JS_MEM_COMMAND COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js.mem ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js.mem)
 endif()
 
 add_custom_target(pack_artifacts
@@ -121,11 +121,11 @@ add_custom_target(pack_artifacts
     COMMAND ${CMAKE_COMMAND} -E make_directory ${GAME_ARTIFACTS_PATH}/mods
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod ${GAME_ARTIFACTS_PATH}/mods/log2048.wrmod
 
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${BACKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
     # ${WEBROGUE_COPY_JS_MEM_COMMAND}
 
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.js ${BACKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_wasm.js
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.wasm ${BACKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_wasm.wasm
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.js ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_wasm.js
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.wasm ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_wasm.wasm
     
     DEPENDS webrogue_baked_game_asmjs webrogue_baked_game_wasm
     DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod
