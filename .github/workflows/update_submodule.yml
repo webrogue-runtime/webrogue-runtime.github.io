@@ -1,4 +1,4 @@
-name: Update Webrogue submodule
+name: update_submodule
 
 on:
   workflow_dispatch:
@@ -17,3 +17,7 @@ jobs:
         sh -c "cd external/webrogue; git pull origin main"
     
     - uses: EndBug/add-and-commit@v9
+
+    - name: Trigger Build
+      run: |
+        gh workflow run pages
