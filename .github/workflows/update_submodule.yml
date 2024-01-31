@@ -5,6 +5,8 @@ on:
 
 jobs:
   update_submodule:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
