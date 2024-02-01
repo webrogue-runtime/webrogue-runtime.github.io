@@ -107,12 +107,12 @@ else()
     set(WEBROGUE_SECOUND_FILE_EXTENSION "")
 endif()
 
-set(baked_game_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/baked_game)
+set(BAKED_GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/baked_game)
 
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
     set(WEBROGUE_COPY_JS_MEM_COMMAND)
 else()
-    set(WEBROGUE_COPY_JS_MEM_COMMAND COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js.mem ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js.mem)
+    set(WEBROGUE_COPY_JS_MEM_COMMAND COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js.mem ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js.mem)
 endif()
 
 add_custom_target(pack_artifacts
@@ -120,13 +120,18 @@ add_custom_target(pack_artifacts
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_game.wasm ${GAME_ARTIFACTS_PATH}/webrogue_game.wasm
     COMMAND ${CMAKE_COMMAND} -E make_directory ${GAME_ARTIFACTS_PATH}/mods
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod ${GAME_ARTIFACTS_PATH}/mods/log2048.wrmod
+    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/brogue/brogue.wrmod ${GAME_ARTIFACTS_PATH}/mods/brogue.wrmod
 
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
     # ${WEBROGUE_COPY_JS_MEM_COMMAND}
 
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.js ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_wasm.js
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.wasm ${baked_game_ARTIFACTS_PATH}/webrogue_baked_game_wasm.wasm
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.js ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_wasm.js
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_wasm.wasm ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_wasm.wasm
     
+    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/platforms/Web/coi-serviceworker.js ${GAME_ARTIFACTS_PATH}/coi-serviceworker.js
+    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/platforms/Web/worker.js ${GAME_ARTIFACTS_PATH}/worker.js
+    
+
     DEPENDS webrogue_baked_game_asmjs webrogue_baked_game_wasm
     DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod
 )

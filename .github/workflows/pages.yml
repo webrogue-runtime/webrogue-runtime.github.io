@@ -19,9 +19,12 @@ jobs:
       run: |
         git submodule update --init --single-branch external/webrogue/
         cd external/webrogue/
-        git submodule update --init --single-branch external/xz/
-        git submodule update --init --single-branch external/libuv/
-        git submodule update --init --single-branch external/uvwasi/
+        git submodule update --init --single-branch \
+          external/xz/ \
+          external/libuv/ \
+          external/uvwasi/ \
+          external/xz/ \
+          mods/brogue 
 
     - name: Install Emscripten
       run: |

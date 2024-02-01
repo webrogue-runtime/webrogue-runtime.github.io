@@ -2,3 +2,5 @@
 /webrogue_game.js
 /webrogue_game.wasm
 /src/build
+/worker.js
+/coi-serviceworker.js
