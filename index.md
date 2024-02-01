@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Main page
-description: Webrogue is a portable modular cross-platform game runtime based on WebAssembly.
 ---
 
 Webrogue is a game runtime based on WebAssembly. 
