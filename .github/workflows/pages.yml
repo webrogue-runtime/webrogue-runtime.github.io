@@ -24,7 +24,8 @@ jobs:
           external/libuv/ \
           external/uvwasi/ \
           external/xz/ \
-          mods/brogue 
+          mods/brogue \
+          mods/coremark
 
     - name: Install Emscripten
       run: |

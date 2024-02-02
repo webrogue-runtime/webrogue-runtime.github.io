@@ -59,6 +59,8 @@ Detailed explanation how mods are executed on web is [here](../in_depth/web_runt
         document.getElementById("noSharedArrayBuffer").style.display = null
     var predefinedMods = [
         { modName: "log2048", url: "./mods/log2048.wrmod" },
+        { modName: "brogue", url: "./mods/brogue.wrmod" },
+        { modName: "coremark", url: "./mods/coremark.wrmod" },
     ];
     var storedMods = [];
     var modSelectorElement = document.getElementById("modSelector");

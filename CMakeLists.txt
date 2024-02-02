@@ -121,6 +121,7 @@ add_custom_target(pack_artifacts
     COMMAND ${CMAKE_COMMAND} -E make_directory ${GAME_ARTIFACTS_PATH}/mods
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod ${GAME_ARTIFACTS_PATH}/mods/log2048.wrmod
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/brogue/brogue.wrmod ${GAME_ARTIFACTS_PATH}/mods/brogue.wrmod
+    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/coremark/coremark.wrmod ${GAME_ARTIFACTS_PATH}/mods/coremark.wrmod
 
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
     # ${WEBROGUE_COPY_JS_MEM_COMMAND}
@@ -134,4 +135,6 @@ add_custom_target(pack_artifacts
 
     DEPENDS webrogue_baked_game_asmjs webrogue_baked_game_wasm
     DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod
+    DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/brogue/brogue.wrmod
+    DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/coremark/coremark.wrmod
 )
