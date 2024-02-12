@@ -66,6 +66,10 @@ Detailed explanation how mods are executed on web is [here](../in_depth/web_runt
     var modSelectorElement = document.getElementById("modSelector");
 
     var homepageIndexedDB = undefined;
+        
+    function splitModToChunks(bytes) {
+        return new Blob([bytes.buffer]);
+    }
 
     function reloadModList() {
         var transaction = homepageIndexedDB.transaction("mods", 'readonly');
@@ -95,7 +99,7 @@ Detailed explanation how mods are executed on web is [here](../in_depth/web_runt
 
                 var nameBytes = bytes.slice(0, bytes.findIndex((byte) => byte == 0));
                 var modName = (new TextDecoder()).decode(nameBytes);
-                var allRecords = transaction.objectStore("mods").put({ modName: modName, data: bytes });
+                var allRecords = transaction.objectStore("mods").put({ modName: modName, blob: splitModToChunks(bytes) });
             }
             reader.onerror = function (event) {
                 remainFiles--;
@@ -122,9 +126,9 @@ Detailed explanation how mods are executed on web is [here](../in_depth/web_runt
         }
         storedMods.forEach((mod) => {
             var newNode = document.getElementById("exampleModItem").cloneNode(true);
-            newNode.querySelector("#modItemLabel").textContent = mod.data ? mod.modName : mod.modName+", not installed";
+            newNode.querySelector("#modItemLabel").textContent = mod.blob ? mod.modName : mod.modName+", not installed";
             var downloadButton = newNode.querySelector("#downloadButton");
-            if (mod.data)
+            if (mod.blob)
                 downloadButton.style.display = "none";
             else
                 downloadButton.onclick = function () {
@@ -139,12 +143,12 @@ Detailed explanation how mods are executed on web is [here](../in_depth/web_runt
                             transaction.oncomplete = function (event) {
                                 reloadModList();
                             };
-                            transaction.objectStore("mods").add({ modName: mod.modName, data: new Uint8Array(content) });
+                            transaction.objectStore("mods").add({ modName: mod.modName, blob: splitModToChunks(new Uint8Array(content)) });
                         });
                     });
                 }
             var deleteButton = newNode.querySelector("#deleteButton");
-            if (!mod.data)
+            if (!mod.blob)
                 deleteButton.style.display = "none";
             else
                 deleteButton.onclick = function () {
