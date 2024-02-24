@@ -15,6 +15,7 @@ Webrogue for Android is currently distributed as an APK file hosted
 
 # Linux
 Webrogue offers:
+- AppImage hosted [here](https://webrogue-runtime.github.io/webrogue/Webrogue-x86_64.AppImage).
 - Debian package hosted [here](https://webrogue-runtime.github.io/webrogue/webrogue.deb). You can use a GUI installer or the following commands
 ```
 wget https://webrogue-runtime.github.io/webrogue/webrogue.deb
