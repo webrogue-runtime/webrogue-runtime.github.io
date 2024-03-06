@@ -13,11 +13,15 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
     - uses: actions/checkout@v4
-        
-    - name: Submodules
+
+    - name: Update Submodule
       run: |
         git submodule update --init external/webrogue
         sh -c "cd external/webrogue; git pull origin main"
+        
+    - name: Update Artwork
+      run: |
+        sh scripts/copy_artwork.sh
     
     - uses: EndBug/add-and-commit@v9
 
