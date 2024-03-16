@@ -9,7 +9,7 @@ title: Download
 
 # Android
 Webrogue for Android is currently distributed as an APK file hosted 
-[here](http://webrogue-runtime.github.io/webrogue/webrogue.apk)
+[here](http://webrogue-runtime.github.io/webrogue/webrogue.apk).
 
 <div id="osMark2"></div>
 
@@ -31,15 +31,20 @@ rm webrogue.rpm
 
 <div id="osMark3"></div>
 
-# MacOS
-Webrogue for macOS is distributed as DMG file hosted [here](https://webrogue-runtime.github.io/webrogue/Webrogue.dmg)
+# Windows
+Installer can be downloaded from [here](https://webrogue-runtime.github.io/webrogue/webrogue_installer.exe).
 
 <div id="osMark4"></div>
 
-# Other platforms
-Webrogue can be built for many platforms manually, or some prebuilt binaries can be found as GitHub Actions Artifacts
+# MacOS
+Webrogue for macOS is distributed as DMG file hosted [here](https://webrogue-runtime.github.io/webrogue/Webrogue.dmg).
 
 <div id="osMark5"></div>
+
+# Other platforms
+Webrogue can be built for many platforms manually, or some prebuilt binaries can be found as GitHub Actions Artifacts.
+
+<div id="osMark6"></div>
 
 <script type='text/javascript'>
     let detectedOsMark = document.getElementById('detectedOsMark');
@@ -63,9 +68,9 @@ Webrogue can be built for many platforms manually, or some prebuilt binaries can
 
         checkOS('Android', 1)
 
-        checkOS('Mac OS X', 3)
+        checkOS('Windows', 3)
+        checkOS('Mac OS X', 4)
 
-        checkOS('Windows', unknownOsMark)
         checkOS('iPhone', unknownOsMark)
     }
 
