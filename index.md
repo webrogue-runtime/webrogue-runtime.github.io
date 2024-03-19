@@ -10,7 +10,7 @@ Thanks to it's design, Webrogue offers the following key advantages:
 - [Cross-platform](benefits/cross_platform)
 - [Programming-language-agnostic](benefits/programming_languages)
 - [Bakeable](benefits/bakeable)
-- [Open source](https://github.com/webrogue-runtume/webrogue)
+- [Open source](https://github.com/webrogue-runtime/webrogue)
 
 Here are two online demos:
 - [Baked demo](baked_game/).
