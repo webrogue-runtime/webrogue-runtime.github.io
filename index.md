@@ -3,7 +3,7 @@ layout: page
 title: Main page
 ---
 
-Webrogue is a game runtime based on WebAssembly. 
+Webrogue is a runtime based on WebAssembly. 
 Thanks to it's design, Webrogue offers the following key advantages:
 - [Portable](benefits/portable)
 - [Modular](benefits/modular)
@@ -16,7 +16,7 @@ Here are two online demos:
 - [Baked demo](baked_game/).
 - [Dynamic demo](game/).
 
-Webrogue is currently in active development and will change significantly, so it is not recommended for production use. 
+Webrogue is currently in active development and will change significantly(see [roadmap](roadmap/)), so it is not recommended for production use. 
 I'm welcome contributions from the community.
 
 It might seem that Webrogue depends on browser. 
