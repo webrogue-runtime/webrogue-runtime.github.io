@@ -27,3 +27,4 @@ Here is a list of examples that probably worth being implemented
 - llama.cpp, stable-diffusion.cpp and other AI examples
 - DOSBox
 - port React Native, Flutter, QT, etc using Vulkan
+- libretro implementation
