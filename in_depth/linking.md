@@ -5,7 +5,7 @@ title: Linking
 
 Mods contains static archives with relocatable WebAssembly code. 
 It makes it possible to merge code of all mods into one.
-It means that if you want to add functionality to existing game, you can just add mod without rebuilding the whole game.
+It means that if you want to add functionality to existing app, you can just add mod without rebuilding the whole app.
 
 Webrogue links mods statically, so mods have co preserve [relocations](https://en.wikipedia.org/wiki/Relocation_(computing)) in WebAssembly code.
 Webrogue does not supports dynamic linking because this method is not mature enough, but may start supporting it in future.

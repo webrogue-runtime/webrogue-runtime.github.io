@@ -46,7 +46,7 @@ It should appear on table below.
 <table id="modSelector"></table>
 
 Note that if no mods are provided then [log2048](../../examples/log2048.html) will be used by default.
-To remove installed mod, click "Delete" button. When you are ready to launch a game, click this button:
+To remove installed mod, click "Delete" button. When you are ready to launch an app, click this button:
 <button type="button" onclick="Module.runGame()">Run</button>.
 
 Detailed explanation how mods are executed on web is [here](../../in_depth/web_runtime.html).

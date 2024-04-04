@@ -63,10 +63,10 @@ It is also possible to use interpreted runtime such as [Wasm3](https://github.co
 
 SDL is used for rendering.
 
-Note that [baked](./bakeable.html) Webrogue games support older browser versions, even without WebAssembly and SharedArrayBuffer features.
+Note that [baked](./bakeable.html) Webrogue apps support older browser versions, even without WebAssembly and SharedArrayBuffer features.
 
 ## DOS
-Only [baked](./bakeable.html) games are supported. Wasm2c baking method is not supported due to libuv limitations. More of this, I guess Webrogue still crushes no startup, but it used to work. I do not know a reason to use DOS in 21st century, so DOS support is not a goal.
+Only [baked](./bakeable.html) apps are supported. Wasm2c baking method is not supported due to libuv limitations. More of this, I guess Webrogue still crushes no startup, but it used to work. I do not know a reason to use DOS in 21st century, so DOS support is not a goal.
 
 PDCurses is used for rendering.
 
