@@ -34,6 +34,8 @@ rm webrogue.rpm
 # Windows
 Installer can be downloaded from [here](https://webrogue-runtime.github.io/webrogue/webrogue_installer.exe).
 
+Also there is an unsigned MSIX installer [here](https://webrogue-runtime.github.io/webrogue/webrogue.msix).
+To install it, open PowerShell, navigate to directory you downloaded your installer into and use the following command
 ```
 Start-Process -Verb RunAs powershell.exe -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; Add-AppPackage -Path webrogue.msix -AllowUnsigned"
 ```
