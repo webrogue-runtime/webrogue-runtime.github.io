@@ -37,6 +37,10 @@ jobs:
         git clone https://github.com/emscripten-core/emsdk.git
         ./emsdk/emsdk install latest
         ./emsdk/emsdk activate latest
+    
+    - name: Install packages
+      run: |
+        sudo apt-get install python3-zstd
 
     - name: Build using Emscripten
       run: |

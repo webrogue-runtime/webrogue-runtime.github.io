@@ -34,6 +34,10 @@ rm webrogue.rpm
 # Windows
 Installer can be downloaded from [here](https://webrogue-runtime.github.io/webrogue/webrogue_installer.exe).
 
+```
+Start-Process -Verb RunAs powershell.exe -Args "-executionpolicy bypass -command Set-Location \`"$PWD\`"; Add-AppPackage -Path webrogue.msix -AllowUnsigned"
+```
+
 <div id="osMark4"></div>
 
 # MacOS
