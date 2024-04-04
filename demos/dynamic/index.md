@@ -38,18 +38,18 @@ title: Dynamic demo
 
 
 
-This page shows how mods can be added to Webrogue [on the fly](../benefits/portable).
+This page shows how mods can be added to Webrogue [on the fly](../../benefits/portable.html).
 You can upload a mod using this input: 
 <input type="file" id="fileSelector" />
 It should appear on table below.
 
 <table id="modSelector"></table>
 
-Note that if no mods are provided then [log2048](../examples/log2048) will be used by default.
+Note that if no mods are provided then [log2048](../../examples/log2048.html) will be used by default.
 To remove installed mod, click "Delete" button. When you are ready to launch a game, click this button:
 <button type="button" onclick="Module.runGame()">Run</button>.
 
-Detailed explanation how mods are executed on web is [here](../in_depth/web_runtime).
+Detailed explanation how mods are executed on web is [here](../../in_depth/web_runtime.html).
 
 
 <script type='text/javascript'>

@@ -11,9 +11,9 @@ title: Baked demo
     document.getElementById('noJavaScript').style.display = "none";
 </script>
 
-As explained in ["Cross-platform" article](../benefits/cross_platform) Webrogue can be compiled to run on the web.
-As explained in ["Webrogue's bakeability" article](../benefits/bakeable.md) a game can be backed into Webrogue.
-In this case this game is [log2048](../examples/log2048).
+As explained in ["Cross-platform" article](../../benefits/cross_platform.html) Webrogue can be compiled to run on the web.
+As explained in ["Webrogue's bakeability" article](../../benefits/bakeable.html) a game can be backed into Webrogue.
+In this case this game is [log2048](../../examples/log2048.html).
 Backing method is "native".
 Here is as example:
 

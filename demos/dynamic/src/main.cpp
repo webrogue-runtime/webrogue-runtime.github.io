@@ -1,6 +1,6 @@
+#include "../../../external/webrogue/embedded_resources/core_wrmod.h"
 #include "../../../src/core/webrogueMain.hpp"
 #include "../../../src/outputs/sdl/SDLOutput.hpp"
-#include "../../external/webrogue/embedded_resources/core_wrmod.h"
 #include <cstddef>
 #include <cstdint>
 #include <emscripten.h>

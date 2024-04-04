@@ -5,7 +5,7 @@ title: Roadmap
 
 This page is just a list of things that would be nice to implement in future
 - ncurses support using libtsm for terminal emulation  
-- pure stdin/stdout/stderr mode, without ncurses or something, but use sdl terminal emulator if needed
+- [headless](./headless.html), pure stdin/stdout/stderr mode, without ncurses or something, but use sdl terminal emulator if needed
 - more programming languages
 - debugging without native runtime
 - network support

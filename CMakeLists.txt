@@ -63,7 +63,7 @@ include(${WEBROGUE_ROOT_PATH}/cmake/make_compact_linker.cmake)
 embed_resource(${WEBROGUE_ROOT_PATH}/mods/core/core.wrmod)
 add_executable(
     webrogue_game 
-    "game/src/main.cpp" 
+    "demos/dynamic/src/main.cpp" 
     "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c" 
     "${WEBROGUE_ROOT_PATH}/embedded_resources/core_wrmod.h"
     "${WEBROGUE_ROOT_PATH}/embedded_resources/core_wrmod.c"
@@ -75,11 +75,11 @@ target_link_options(
     webrogue_game PRIVATE
     -sWASM_BIGINT
     -sFETCH 
-    --js-library ${CMAKE_CURRENT_LIST_DIR}/game/src/vmlib.js 
+    --js-library ${CMAKE_CURRENT_LIST_DIR}/demos/dynamic/src/vmlib.js 
     "-sASYNCIFY_IMPORTS=[presentModSelector, prepareMods, initWasmModule, execFunc, continueFuncExecution, readModMem, writeModMem]"
 )
 
-set(GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/game)
+set(GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/demos/dynamic)
 
 make_webrogue_runtime(
     LIB_NAME webrogue_runtime_native
@@ -88,14 +88,14 @@ make_webrogue_runtime(
     NATIVE_RUNTIME_MODS core log2048
     WEBROGUE_CORE_LIB webrogue_core
 )
-add_executable(webrogue_baked_game_asmjs "baked_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
+add_executable(webrogue_baked_game_asmjs "demos/baked_log2048/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
 target_link_options(webrogue_baked_game_asmjs PRIVATE -sWASM=0)
 target_include_directories(webrogue_baked_game_asmjs PRIVATE ${WEBROGUE_ROOT_PATH}/external/libuv/include) 
 target_link_libraries(webrogue_baked_game_asmjs webrogue_output_sdl webrogue_core webrogue_runtime_native idbfs.js)
 target_include_directories(webrogue_baked_game_asmjs PRIVATE ${WEBROGUE_ROOT_PATH}/embedded_resources)
 
 
-add_executable(webrogue_baked_game_wasm "baked_game/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
+add_executable(webrogue_baked_game_wasm "demos/baked_log2048/src/main.cpp" "${WEBROGUE_ROOT_PATH}/platforms/Web/uv_emscripten.c")
 target_link_options(webrogue_baked_game_wasm PRIVATE -sWASM=1)
 target_include_directories(webrogue_baked_game_wasm PRIVATE ${WEBROGUE_ROOT_PATH}/external/libuv/include) 
 target_link_libraries(webrogue_baked_game_wasm webrogue_output_sdl webrogue_core webrogue_runtime_native idbfs.js)
@@ -107,7 +107,7 @@ else()
     set(WEBROGUE_SECOUND_FILE_EXTENSION "")
 endif()
 
-set(BAKED_GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/baked_game)
+set(BAKED_GAME_ARTIFACTS_PATH ${CMAKE_CURRENT_LIST_DIR}/demos/baked_log2048)
 
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
     set(WEBROGUE_COPY_JS_MEM_COMMAND)

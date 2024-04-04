@@ -36,7 +36,7 @@ plugins:
   - jekyll-sitemap
 
 header_pages:
-  - download/index.md
+  - download.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -52,8 +52,8 @@ exclude:
   - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - baked_game/src/
-  - game/src/
+  - demos/baked_log2048/src/
+  - demos/dynamic/src/
   - external/
   - scripts/
   - LICENSE

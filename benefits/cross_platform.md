@@ -12,7 +12,7 @@ Webrogue is a cross-platform runtime. It means that it is designed to work in se
  - Web.
  - DOS with limited(close to zero) support
 
-Webrogue uses different technologies on different platforms for [rendering](../in_depth/rendering) and [code execution](../in_depth/runtimes).
+Webrogue uses different technologies on different platforms for [rendering](../in_depth/rendering.html) and [code execution](../in_depth/runtimes.html).
 
 ## Linux
 Webrogue was designed to work primary on Linux.
@@ -58,15 +58,15 @@ Webrogue needs WebAssembly and SharedArrayBuffer features for dynamic loading on
  - Firefox: 78
  - Safari: 14.1
 
-Webrogue uses browser's WebAssembly feature. [Here](../in_depth/web_runtime.) is an explanation of why SharedArrayBuffer feature is also needed.
+Webrogue uses browser's WebAssembly feature. [Here](../in_depth/web_runtime.html) is an explanation of why SharedArrayBuffer feature is also needed.
 It is also possible to use interpreted runtime such as [Wasm3](https://github.com/wasm3/wasm3) to avoid browser version limitations, but it will affect performance badly.
 
 SDL is used for rendering.
 
-Note that [baked](./bakeable) Webrogue games support older browser versions, even without WebAssembly and SharedArrayBuffer features.
+Note that [baked](./bakeable.html) Webrogue games support older browser versions, even without WebAssembly and SharedArrayBuffer features.
 
 ## DOS
-Only [baked](./bakeable) games are supported. Wasm2c baking method is not supported due to libuv limitations. More of this, I guess Webrogue still crushes no startup, but it used to work. I do not know a reason to use DOS in 21st century, so DOS support is not a goal.
+Only [baked](./bakeable.html) games are supported. Wasm2c baking method is not supported due to libuv limitations. More of this, I guess Webrogue still crushes no startup, but it used to work. I do not know a reason to use DOS in 21st century, so DOS support is not a goal.
 
 PDCurses is used for rendering.
 

@@ -5,18 +5,18 @@ title: Main page
 
 Webrogue is a runtime based on WebAssembly. 
 Thanks to it's design, Webrogue offers the following key advantages:
-- [Portable](benefits/portable)
-- [Modular](benefits/modular)
-- [Cross-platform](benefits/cross_platform)
-- [Programming-language-agnostic](benefits/programming_languages)
-- [Bakeable](benefits/bakeable)
+- [Portable](benefits/portable.html)
+- [Modular](benefits/modular.html)
+- [Cross-platform](benefits/cross_platform.html)
+- [Programming-language-agnostic](benefits/programming_languages.html)
+- [Bakeable](benefits/bakeable.html)
 - [Open source](https://github.com/webrogue-runtime/webrogue)
 
 Here are two online demos:
-- [Baked demo](baked_game/).
-- [Dynamic demo](game/).
+- [Baked log2048 demo](demos/baked_log2048/).
+- [Dynamic demo](demos/dynamic/).
 
-Webrogue is currently in active development and will change significantly(see [roadmap](roadmap/)), so it is not recommended for production use. 
+Webrogue is currently in active development and will change significantly(see [goals](goals/)), so it is not recommended for production use. 
 I'm welcome contributions from the community.
 
 It might seem that Webrogue depends on browser. 

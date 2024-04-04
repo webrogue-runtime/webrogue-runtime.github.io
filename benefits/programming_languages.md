@@ -22,7 +22,7 @@ It is possible to build an interpreter and use it to run a code on an interprete
   - Perl
   - all jvm languages, including Java, using Oracle's HotSpot, but it will be challenging
 
-Also it is planned to implement a [multi-stage build](../goals/milti_stage_build). 
+Also it is planned to implement a [multi-stage build](../goals/milti_stage_build.html). 
 It means that a WebAssembly code will be executed to compile some mods' resources, usually bytecode, to relocatable WebAssembly code, that will be used to link solid WebAssembly code.
 (In theory) It will make it possible to use thous languages:
  - Dart
