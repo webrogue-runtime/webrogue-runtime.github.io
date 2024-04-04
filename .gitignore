@@ -2,5 +2,6 @@
 /.jekyll-cache
 /Gemfile.lock
 /build
+/mods_build
 .DS_Store
 .cache

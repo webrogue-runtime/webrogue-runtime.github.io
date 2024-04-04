@@ -59,6 +59,7 @@ exclude:
   - LICENSE
   - emsdk
   - build
+  - mods_build
 
 defaults:
   - scope:

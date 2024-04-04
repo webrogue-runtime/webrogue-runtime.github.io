@@ -24,8 +24,7 @@ jobs:
       run: |
         git submodule update --init --single-branch external/webrogue/
         cd external/webrogue/
-        git submodule update --init --single-branch \
-          external/xz/ \
+        git submodule update --init --recursive --single-branch \
           external/libuv/ \
           external/uvwasi/ \
           external/xz/ \
@@ -41,6 +40,21 @@ jobs:
     - name: Install packages
       run: |
         sudo apt-get install python3-zstd
+
+    - name: Build mods
+      run:
+        cmake -B mods_build -S external/webrogue/mods \
+          --toolchain=tools/generated_toolchain.cmake \
+          -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DWEBROGUE_MOD_NAMES="core;coremark"
+        cmake --build mods_build --target final_linking
+        cmake -B mods_build -S external/webrogue/mods \
+          --toolchain=tools/generated_toolchain.cmake \
+          -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DWEBROGUE_MOD_NAMES="core;brogue"
+        cmake --build mods_build --target final_linking
 
     - name: Build using Emscripten
       run: |
