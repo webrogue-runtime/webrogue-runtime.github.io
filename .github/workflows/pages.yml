@@ -48,12 +48,15 @@ jobs:
           -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
           -DCMAKE_BUILD_TYPE=Release \
           -DWEBROGUE_MOD_NAMES="core;coremark"
+
         cmake --build mods_build --target final_linking
+
         cmake -B mods_build -S external/webrogue/mods \
           --toolchain=tools/generated_toolchain.cmake \
           -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
           -DCMAKE_BUILD_TYPE=Release \
           -DWEBROGUE_MOD_NAMES="core;brogue"
+          
         cmake --build mods_build --target final_linking
 
     - name: Build using Emscripten
