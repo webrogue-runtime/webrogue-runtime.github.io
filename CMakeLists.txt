@@ -5,7 +5,7 @@ project(webrogue_game)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 14)
 
-set(CLANG_HAS_WASM TRUE)
+set(CLANG_HAS_WASM FALSE)
 set(WEBROGUE_ROOT_PATH ${CMAKE_CURRENT_LIST_DIR}/external/webrogue)
 set(WEBROGUE_MOD_NAMES core log2048)
 

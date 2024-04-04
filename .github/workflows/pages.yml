@@ -43,21 +43,9 @@ jobs:
 
     - name: Build mods
       run:
-        cmake -B mods_build -S external/webrogue/mods \
-          --toolchain=tools/generated_toolchain.cmake \
-          -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DWEBROGUE_MOD_NAMES="core;coremark"
-
-        cmake --build mods_build --target final_linking
-
-        cmake -B mods_build -S external/webrogue/mods \
-          --toolchain=tools/generated_toolchain.cmake \
-          -DCMAKE_MODULE_PATH=$(pwd)/external/webrogue/mods/cmake \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DWEBROGUE_MOD_NAMES="core;brogue"
-          
-        cmake --build mods_build --target final_linking
+        cmake -DWEBROGUE_MOD_NAMES="core;log2048" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
+        cmake -DWEBROGUE_MOD_NAMES="core;coremark" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
+        cmake -DWEBROGUE_MOD_NAMES="core;brogue" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
 
     - name: Build using Emscripten
       run: |
