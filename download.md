@@ -15,7 +15,7 @@ Webrogue for Android is currently distributed as an APK file hosted
 
 # Linux
 Webrogue offers:
-- AppImage hosted [here](https://webrogue-runtime.github.io/webrogue/Webrogue-x86_64.AppImage).
+- AppImage hosted [here](https://webrogue-runtime.github.io/webrogue/webrogue-x86_64.AppImage).
 - Debian package hosted [here](https://webrogue-runtime.github.io/webrogue/webrogue.deb). You can use a GUI installer or the following commands
 ```
 wget https://webrogue-runtime.github.io/webrogue/webrogue.deb
@@ -43,7 +43,7 @@ Start-Process -Verb RunAs powershell.exe -Args "-executionpolicy bypass -command
 <div id="osMark4"></div>
 
 # MacOS
-Webrogue for macOS is distributed as DMG file hosted [here](https://webrogue-runtime.github.io/webrogue/Webrogue.dmg).
+Webrogue for macOS is distributed as DMG file hosted [here](https://webrogue-runtime.github.io/webrogue/webrogue.dmg).
 
 <div id="osMark5"></div>
 
@@ -66,7 +66,7 @@ Webrogue can be built for many platforms manually, or some prebuilt binaries can
             }
         }
         
-        let unknownOsMark = 4;
+        let unknownOsMark = 5;
         checkOS('', unknownOsMark)
 
         checkOS('Linux', 2)
