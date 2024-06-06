@@ -41,12 +41,6 @@ jobs:
       run: |
         sudo apt-get install python3-zstd
 
-    - name: Build mods
-      run:
-        cmake -DWEBROGUE_MOD_NAMES="core;log2048" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
-        cmake -DWEBROGUE_MOD_NAMES="core;coremark" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
-        cmake -DWEBROGUE_MOD_NAMES="core;brogue" -DMODS_BUILD_DIR=mods_build -P external/webrogue/mods/tools/build.cmake
-
     - name: Build using Emscripten
       run: |
         . ./emsdk/emsdk_env.sh
