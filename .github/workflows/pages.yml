@@ -27,9 +27,7 @@ jobs:
         git submodule update --init --recursive --single-branch \
           external/libuv/ \
           external/uvwasi/ \
-          external/xz/ \
-          mods/brogue \
-          mods/coremark
+          external/xz/
 
     - name: Install Emscripten
       run: |

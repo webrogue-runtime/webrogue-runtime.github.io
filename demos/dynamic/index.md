@@ -42,7 +42,7 @@ This page shows how mods can be added to webrogue [on the fly](../../benefits/po
 You can upload a mod using this input: 
 <input type="file" multiple id="fileSelector" />
 It should appear on table below. 
-More examples can be found [here](../../examples/).
+More examples [here](../../examples/).
 
 <table id="modSelector"></table>
 
