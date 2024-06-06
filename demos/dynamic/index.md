@@ -38,7 +38,7 @@ title: Dynamic demo
 
 
 
-This page shows how mods can be added to Webrogue [on the fly](../../benefits/portable.html).
+This page shows how mods can be added to webrogue [on the fly](../../benefits/portable.html).
 You can upload a mod using this input: 
 <input type="file" id="fileSelector" />
 It should appear on table below.
@@ -235,7 +235,7 @@ window.coi = {
             return canvas;
         })(),
         setStatus: function (text) {
-            if (text == "Running...") text = "Loading Webrogue...";
+            if (text == "Running...") text = "Loading webrogue...";
             statusLabelElement.textContent = text
         },
         totalDependencies: 0,

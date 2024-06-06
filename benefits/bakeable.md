@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Webrogue's bakeability
+title: webrogue's bakeability
 ---
 
-As mentioned in explanation of Webrogue's [portability](./portable), apps and modifications are distributed as __Webrogue mods__, which contains WebAssembly code.
+As mentioned in explanation of webrogue's [portability](./portable), apps and modifications are distributed as __webrogue mods__, which contains WebAssembly code.
 But in fact it is not always so.
 
-App as well as modifications can be "baked" into Webrogue. 
+App as well as modifications can be "baked" into webrogue. 
 Baking is originally used during debug process, but distribution of baked apps is an option.
 Webrogue offers two baking methods:
 

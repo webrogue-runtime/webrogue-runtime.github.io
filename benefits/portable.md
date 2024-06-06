@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Webrogue's portability
+title: webrogue's portability
 ---
 
-Webrogue packs apps into portable __Webrogue mods__, which will be called just __mods__. 
+Webrogue packs apps into portable __webrogue mods__, which will be called just __mods__. 
 
 Mods are compressed archive files with custom format and `.wrmod` extension.
 They contain WebAssembly code and app resources.

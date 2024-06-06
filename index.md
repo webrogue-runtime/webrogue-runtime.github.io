@@ -4,7 +4,7 @@ title: Main page
 ---
 
 Webrogue is a runtime based on WebAssembly. 
-Thanks to it's design, Webrogue offers the following key advantages:
+Thanks to it's design, webrogue offers the following key advantages:
 - [Portable](benefits/portable.html)
 - [Modular](benefits/modular.html)
 - [Cross-platform](benefits/cross_platform.html)
@@ -19,6 +19,6 @@ Here are two online demos:
 Webrogue is currently in active development and will change significantly(see [goals](goals/)), so it is not recommended for production use. 
 I'm welcome contributions from the community.
 
-It might seem that Webrogue depends on browser. 
+It might seem that webrogue depends on browser. 
 It is not so. 
-You can run Webrogue without any sort of browser, for example, on Windows Command Prompt, on Linux over SSH, on macOS in terminal app, potentially even on DOS.
+You can run webrogue without any sort of browser, for example, on Windows Command Prompt, on Linux over SSH, on macOS in terminal app, potentially even on DOS.

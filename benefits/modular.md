@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Webrogue's modularity
+title: webrogue's modularity
 ---
 
-As mentioned in explanation of Webrogue's [portability](./portable.html), apps are distributed as __mods__. 
-In context of Webrogue the word "mod" stands for "module". 
+As mentioned in explanation of webrogue's [portability](./portable.html), apps are distributed as __mods__. 
+In context of webrogue the word "mod" stands for "module". 
 
 Webrogue does not differs apps and modifications, so they are unified under term "mods".
 
