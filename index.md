@@ -4,13 +4,14 @@ title: Main page
 ---
 
 Webrogue is a runtime based on WebAssembly. 
-Thanks to it's design, webrogue offers the following key advantages:
+Thanks to its design, webrogue offers the following key advantages:
 - [Portable](benefits/portable.html)
 - [Modular](benefits/modular.html)
 - [Cross-platform](benefits/cross_platform.html)
 - [Programming-language-agnostic](benefits/programming_languages.html)
 - [Bakeable](benefits/bakeable.html)
-- [Open source](https://github.com/webrogue-runtime/webrogue)
+
+And of course webrogue is [open source](https://github.com/webrogue-runtime/webrogue).
 
 Here are two online demos:
 - [Baked log2048 demo](demos/baked_log2048/).
