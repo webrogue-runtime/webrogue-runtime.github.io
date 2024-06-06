@@ -5,7 +5,7 @@ project(webrogue_game)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 14)
 
-set(CLANG_HAS_WASM FALSE)
+set(CLANG_HAS_WASM TRUE)
 set(WEBROGUE_ROOT_PATH ${CMAKE_CURRENT_LIST_DIR}/external/webrogue)
 set(WEBROGUE_MOD_NAMES core log2048)
 
@@ -60,7 +60,6 @@ make_webrogue_runtime(
 set(WEBROGUE_COMPACT_LINKER_STATIC ON)
 include(${WEBROGUE_ROOT_PATH}/cmake/make_compact_linker.cmake)
 
-embed_resource(${WEBROGUE_ROOT_PATH}/mods/core/core.wrmod)
 add_executable(
     webrogue_game 
     "demos/dynamic/src/main.cpp" 
@@ -118,11 +117,6 @@ endif()
 add_custom_target(pack_artifacts
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_game.js ${GAME_ARTIFACTS_PATH}/webrogue_game.js
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_game.wasm ${GAME_ARTIFACTS_PATH}/webrogue_game.wasm
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${GAME_ARTIFACTS_PATH}/mods
-    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod ${GAME_ARTIFACTS_PATH}/mods/log2048.wrmod
-    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/brogue/brogue.wrmod ${GAME_ARTIFACTS_PATH}/mods/brogue.wrmod
-    COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/mods/coremark/coremark.wrmod ${GAME_ARTIFACTS_PATH}/mods/coremark.wrmod
-
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/webrogue_baked_game_asmjs.js ${BAKED_GAME_ARTIFACTS_PATH}/webrogue_baked_game_asmjs.js
     # ${WEBROGUE_COPY_JS_MEM_COMMAND}
 
@@ -132,9 +126,5 @@ add_custom_target(pack_artifacts
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/platforms/Web/coi-serviceworker.js ${GAME_ARTIFACTS_PATH}/coi-serviceworker.js
     COMMAND ${CMAKE_COMMAND} -E copy ${WEBROGUE_ROOT_PATH}/platforms/Web/worker.js ${GAME_ARTIFACTS_PATH}/worker.js
     
-
-    DEPENDS webrogue_baked_game_asmjs webrogue_baked_game_wasm
-    DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/log2048/log2048.wrmod
-    DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/brogue/brogue.wrmod
-    DEPENDS webrogue_game ${WEBROGUE_ROOT_PATH}/mods/coremark/coremark.wrmod
+    DEPENDS webrogue_game webrogue_baked_game_asmjs webrogue_baked_game_wasm
 )

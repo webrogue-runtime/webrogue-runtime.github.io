@@ -40,7 +40,7 @@ title: Dynamic demo
 
 This page shows how mods can be added to webrogue [on the fly](../../benefits/portable.html).
 You can upload a mod using this input: 
-<input type="file" id="fileSelector" />
+<input type="file" multiple id="fileSelector" />
 It should appear on table below. 
 More examples can be found [here](../../examples/).
 
@@ -59,9 +59,9 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
     if(typeof SharedArrayBuffer === 'undefined')
         document.getElementById("noSharedArrayBuffer").style.display = null
     var predefinedMods = [
-        { modName: "log2048", url: "../../mods/log2048.wrmod" },
-        { modName: "brogue", url: "../../mods/brogue.wrmod" },
-        { modName: "coremark", url: "../../mods/coremark.wrmod" },
+        { modName: "log2048", url: "../../webrogue/mods/log2048.wrmod" },
+        { modName: "brogue", url: "../../webrogue/mods/brogue.wrmod" },
+        { modName: "coremark", url: "../../webrogue/mods/coremark.wrmod" },
     ];
     var storedMods = [];
     var modSelectorElement = document.getElementById("modSelector");

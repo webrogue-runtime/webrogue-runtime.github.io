@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 
       fetched = false;
       fetchedModName = "log2048";
-      emscripten_fetch(&attr, "mods/log2048.wrmod");
+      emscripten_fetch(&attr, "../../webrogue/mods/log2048.wrmod");
       while (!fetched)
         emscripten_sleep(10);
     } else {
