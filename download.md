@@ -52,6 +52,10 @@ Webrogue can be built for many platforms manually, or some prebuilt binaries can
 
 <div id="osMark6"></div>
 
+# Examples
+While webrogue comes with preinstalled log2048 mod, you will likely want to find more mods.
+[Here](../examples/) are some.
+
 <script type='text/javascript'>
     let detectedOsMark = document.getElementById('detectedOsMark');
 

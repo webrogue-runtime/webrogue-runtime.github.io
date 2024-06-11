@@ -3,11 +3,14 @@ layout: page
 title: Examples
 ---
 
+Here are some example webrogue mods.
+You can find links to download webrogue for your platform [here](../download.html).
+Alternatively, you can run webrogue mods in your browser using [this online demo](../demos/dynamic/)
+
 # log2048
 [log2048](./log2048.html) is an implementation of 2048 puzzle. 
 It is the default mod in webrogue. 
 Download [here](https://webrogue-runtime.github.io/webrogue/mods/log2048.wrmod).
-
 
 # BrogueCE
 BrogueCE is an old-style roguelike game. 
