@@ -63,6 +63,7 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
         { modName: "brogue", url: "../../webrogue/mods/brogue.wrmod" },
         { modName: "coremark", url: "../../webrogue/mods/coremark.wrmod" },
     ];
+    predefinedMods = [];
     var storedMods = [];
     var modSelectorElement = document.getElementById("modSelector");
 
