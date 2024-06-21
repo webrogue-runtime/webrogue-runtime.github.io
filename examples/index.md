@@ -18,7 +18,8 @@ Download [here](https://webrogue-runtime.github.io/webrogue/mods/brogue.wrmod).
 
 # RuGPT2
 RuGPT2 is a GGML's example with built-in rugpt3small_based_on_gpt2 model (~290MB). 
-Download [here](https://webrogue-runtime.github.io/webrogue/mods/rugpt2.wrmod).
+<!-- Download [here](https://webrogue-runtime.github.io/webrogue/mods/rugpt2.wrmod). -->
+Downnload is currently not available due to mods's size.
 
 # Coremark
 Coremark is a benchmarking utility.
@@ -30,3 +31,4 @@ Download LangExampleCore [here](https://webrogue-runtime.github.io/webrogue/mods
 Mods for LangExampleCore:
 - LangExampleC. Download [here](https://webrogue-runtime.github.io/webrogue/mods/langExampleC.wrmod).
 - LangExampleRust. Download [here](https://webrogue-runtime.github.io/webrogue/mods/langExampleRust.wrmod).
+- LangExampleJS. Download [here](https://webrogue-runtime.github.io/webrogue/mods/langExampleJS.wrmod).
