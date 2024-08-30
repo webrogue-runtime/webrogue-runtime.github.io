@@ -3,6 +3,9 @@ layout: page
 title: Roadmap
 ---
 
+> [!WARNING]  
+> This page is outdated. 
+
 This page is just a list of things that would be nice to implement in future
 - ncurses support using libtsm for terminal emulation  
 - [headless](./headless.html), pure stdin/stdout/stderr mode, without ncurses or something, but use sdl terminal emulator if needed

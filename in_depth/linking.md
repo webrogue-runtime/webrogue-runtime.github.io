@@ -3,6 +3,9 @@ layout: page
 title: Linking
 ---
 
+> [!WARNING]  
+> This page is outdated. Static linking will be not supported out of box, but will be possible with deferred build feature.
+
 Mods contains static archives with relocatable WebAssembly code. 
 It makes it possible to merge code of all mods into one.
 It means that if you want to add functionality to existing app, you can just add mod without rebuilding the whole app.

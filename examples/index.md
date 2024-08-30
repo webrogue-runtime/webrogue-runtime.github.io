@@ -3,6 +3,9 @@ layout: page
 title: Examples
 ---
 
+> [!WARNING]  
+> This page is outdated. Webrogue is currently being rewritten to Rust, but old demos are still here.
+
 Here are some example webrogue mods.
 You can find links to download webrogue for your platform [here](../download.html).
 Alternatively, you can run webrogue mods in your browser using [this online demo](../demos/dynamic/)

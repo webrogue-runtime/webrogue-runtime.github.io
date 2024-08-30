@@ -3,6 +3,9 @@ layout: page
 title: webrogue's portability
 ---
 
+> [!WARNING]  
+> This page is outdated. Webrogue now uses WRAPP format. 
+
 Webrogue packs apps into portable __webrogue mods__, which will be called just __mods__. 
 
 Mods are compressed archive files with custom format and `.wrmod` extension.

@@ -3,6 +3,9 @@ layout: page
 title: Cross-platform
 ---
 
+> [!WARNING]  
+> This page is outdated. New version of webrogue uses different code execution libraries. Rendering is done using OpenGL ES. DOS support is ended.
+
 Webrogue is a cross-platform runtime. It means that it is designed to work in several different computing platforms. Currently supported platforms are:
  - Linux
  - Windows

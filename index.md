@@ -3,6 +3,10 @@ layout: page
 title: Main page
 ---
 
+
+> [!WARNING]  
+> This page is outdated. Webrogue is currently being rewritten to Rust and goals slightly changed. New repo is [here](https://github.com/webrogue-runtime/webrogue_rs).
+
 Webrogue is a runtime based on WebAssembly. 
 Thanks to its design, webrogue offers the following key advantages:
 - [Portable](benefits/portable.html)
@@ -22,4 +26,4 @@ I'm welcome contributions from the community.
 
 It might seem that webrogue depends on browser. 
 It is not so. 
-You can run webrogue without any sort of browser, for example, on Windows Command Prompt, on Linux over SSH, on macOS in terminal app, potentially even on DOS.
+You can run webrogue without any sort of browser installed, and webrogue does not ships any.

@@ -3,6 +3,9 @@ layout: page
 title: webrogue's modularity
 ---
 
+> [!WARNING]  
+> This page is outdated. Webrogue now uses WRAPP format. 
+
 As mentioned in explanation of webrogue's [portability](./portable.html), apps are distributed as __mods__. 
 In context of webrogue the word "mod" stands for "module". 
 

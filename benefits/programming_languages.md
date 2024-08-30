@@ -3,6 +3,9 @@ layout: page
 title: Programming-language-agnostic
 ---
 
+> [!WARNING]  
+> This page is outdated. Only few languages are tested. 
+
 Webrogue is designed to be programming language-agnostic.
 It is about mods, not runtime itself.
 Currently only C and C++ are tested, but (in theory) thous languages can be compiled to relocatable WebAssembly code and used to write mods:

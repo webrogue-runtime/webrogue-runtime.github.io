@@ -3,6 +3,10 @@ layout: page
 title: webrogue's bakeability
 ---
 
+
+> [!WARNING]  
+> This page is outdated. New version of webrogue temporary does not supports Wasm2c method and will not support Native method. 
+
 As mentioned in explanation of webrogue's [portability](./portable), apps and modifications are distributed as __webrogue mods__, which contains WebAssembly code.
 But in fact it is not always so.
 

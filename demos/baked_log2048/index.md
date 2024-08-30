@@ -3,6 +3,9 @@ layout: page
 title: Baked demo
 ---
 
+> [!WARNING]  
+> This page is outdated. Webrogue is currently being rewritten to Rust, but old demos are still here.
+
 <div id="noJavaScript">
     Warning! You browser does not supports JavaScript or it is turned off. This demo will not work.
     <br/><br/>
