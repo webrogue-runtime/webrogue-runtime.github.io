@@ -1,4 +1,3 @@
 [submodule "external/webrogue"]
 	path = external/webrogue
 	url = https://github.com/webrogue-runtime/webrogue.git
-	ignore = dirty

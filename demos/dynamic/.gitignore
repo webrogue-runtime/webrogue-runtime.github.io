@@ -1,6 +1,7 @@
 /mods
-/webrogue_game.js
-/webrogue_game.wasm
+/webrogue.js
+/webrogue.wasm
 /src/build
+/src/target
 /worker.js
 /coi-serviceworker.js

@@ -5,20 +5,17 @@ title: Dynamic demo
 
 <div style="display: none;"> <!-- invisible container fore reusable elements -->
     <table>
-        <tr id="exampleModItem">
+        <tr id="installedAppsItemTemplate">
             <td>
                 <label id="modItemLabel">Example mod item</label>
             </td>
             <td>
-                <button type="button" id="downloadButton"><label>Download</label></button>
+                <button type="button" id="runButton"><label>Run</label></button>
                 <button type="button" id="deleteButton"><label>Delete</label></button>
             </td>
         </tr>
     </table>
 </div>
-
-> [!WARNING]  
-> This page is outdated. Webrogue is currently being rewritten to Rust, but old demos are still here.
 
 <div id="noJavaScript">
     Warning! You browser does not supports JavaScript or it is turned off. This demo will not work.
@@ -41,20 +38,14 @@ title: Dynamic demo
 
 
 
-This page shows how mods can be added to webrogue [on the fly](../../benefits/portable.html).
-You can upload a mod using this input: 
-<input type="file" multiple id="fileSelector" />
-It should appear on table below. 
-More examples [here](../../examples/).
+This page allows you to upload and run WRAPPs in your browser
 
-<table id="modSelector"></table>
+Choose a WRAPP to upload: <input type="file" multiple accept=".wrapp" id="fileSelector"/>
 
-Note that if no mods are provided then [log2048](../../examples/log2048.html) will be used by default.
-To remove installed mod, click "Delete" button. When you are ready to launch an app, click this button:
-<button type="button" onclick="Module.runGame()">Run</button>.
+Saved WRAPPs:
+<table id="installedApps"></table>
 
-Detailed explanation how mods are executed on web is [here](../../in_depth/web_runtime.html).
-
+<canvas id="canvas" oncontextmenu="event.preventDefault()"  ></canvas>
 
 <script type='text/javascript'>
     if(typeof WebAssembly === 'undefined')
@@ -62,13 +53,13 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
     if(typeof SharedArrayBuffer === 'undefined')
         document.getElementById("noSharedArrayBuffer").style.display = null
     var predefinedMods = [
-        { modName: "log2048", url: "../../webrogue/mods/log2048.wrmod" },
-        { modName: "brogue", url: "../../webrogue/mods/brogue.wrmod" },
-        { modName: "coremark", url: "../../webrogue/mods/coremark.wrmod" },
+        // { modName: "log2048", url: "../../webrogue/mods/log2048.wrmod" },
+        // { modName: "brogue", url: "../../webrogue/mods/brogue.wrmod" },
+        // { modName: "coremark", url: "../../webrogue/mods/coremark.wrmod" },
     ];
     predefinedMods = [];
     var storedMods = [];
-    var modSelectorElement = document.getElementById("modSelector");
+    var installedAppsElement = document.getElementById("installedApps");
 
     var homepageIndexedDB = undefined;
         
@@ -77,8 +68,8 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
     }
 
     function reloadModList() {
-        var transaction = homepageIndexedDB.transaction("mods", 'readonly');
-        var allRecords = transaction.objectStore("mods").getAll();
+        var transaction = homepageIndexedDB.transaction("apps", 'readonly');
+        var allRecords = transaction.objectStore("apps").getAll();
         allRecords.onsuccess = function () {
             setStoredMods(allRecords.result);
         };
@@ -96,15 +87,21 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
                 if (remainFiles == 0) {
                     fileSelector.value = null;
                 }
-                var transaction = homepageIndexedDB.transaction("mods", 'readwrite');
+                var transaction = homepageIndexedDB.transaction("apps", 'readwrite');
                 transaction.oncomplete = function (event) {
                     reloadModList();
                 };
                 var bytes = new Uint8Array(event.target.result);
 
-                var nameBytes = bytes.slice(0, bytes.findIndex((byte) => byte == 0));
-                var modName = (new TextDecoder()).decode(nameBytes);
-                var allRecords = transaction.objectStore("mods").put({ modName: modName, blob: splitModToChunks(bytes) });
+                var jsonEndPos = bytes.slice(6).findIndex((byte) => byte == 0) + 6;
+                var jsonBytes = bytes.slice(6, jsonEndPos);
+                var configStr = (new TextDecoder()).decode(jsonBytes);
+                var config = JSON.parse(configStr);
+                transaction.objectStore("apps").put({ 
+                    id: config.id,
+                    configStr: configStr,
+                    blob: splitModToChunks(bytes)
+                });
             }
             reader.onerror = function (event) {
                 remainFiles--;
@@ -116,54 +113,65 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
 
     function setStoredMods(newStoredMods) {
         storedMods = newStoredMods;
-        predefinedMods.filter((predefinedMod) => {
-            var result = true;
-            storedMods.forEach(storedMod => {
-                if (storedMod.modName == predefinedMod.modName)
-                    result = false;
-            });
-            return result;
-        }).forEach((predefinedMod) => {
-            storedMods.unshift(predefinedMod)
-        })
-        while (modSelectorElement.firstChild) {
-            modSelectorElement.removeChild(modSelectorElement.lastChild);
+        // predefinedMods.filter((predefinedMod) => {
+        //     var result = true;
+        //     storedMods.forEach(storedMod => {
+        //         if (storedMod.modName == predefinedMod.modName)
+        //             result = false;
+        //     });
+        //     return result;
+        // }).forEach((predefinedMod) => {
+        //     storedMods.unshift(predefinedMod)
+        // })
+        while (installedAppsElement.firstChild) {
+            installedAppsElement.removeChild(installedAppsElement.lastChild);
         }
         storedMods.forEach((mod) => {
-            var newNode = document.getElementById("exampleModItem").cloneNode(true);
-            newNode.querySelector("#modItemLabel").textContent = mod.blob ? mod.modName : mod.modName+", not installed";
-            var downloadButton = newNode.querySelector("#downloadButton");
-            if (mod.blob)
-                downloadButton.style.display = "none";
-            else
-                downloadButton.onclick = function () {
-                    fetch(mod.url).then(function (response) {
-                        if (!response.ok) {
-                            return false;
-                        }
-                        return response.blob();
-                    }).then(function (myBlob) {
-                        myBlob.arrayBuffer().then((content) => {
-                            var transaction = homepageIndexedDB.transaction("mods", 'readwrite');
-                            transaction.oncomplete = function (event) {
-                                reloadModList();
-                            };
-                            transaction.objectStore("mods").add({ modName: mod.modName, blob: splitModToChunks(new Uint8Array(content)) });
-                        });
-                    });
+            var newNode = document.getElementById("installedAppsItemTemplate").cloneNode(true);
+            let config = JSON.parse(mod.configStr);
+            newNode.querySelector("#modItemLabel").textContent = mod.blob ? config.name : (config.name + ", not installed");
+            var runButton = newNode.querySelector("#runButton");
+            runButton.onclick = async function () {
+                if (PThread.runningWorkers.length != 0) {
+                    console.log("Terminating all threads.");
+                    PThread.terminateAllThreads();
+                    // It takes time, and starting new WRAPP before all threads are terminated may cause odd bugs with 
+                    await new Promise(resolve => setTimeout(resolve, 2000));
                 }
+                let data = new Uint8Array(await mod.blob.arrayBuffer());
+                let ptr = Module._wr_allocApp(data.byteLength);
+                HEAPU8.set(data, Number(ptr))
+                Module.callMain();
+            }
+            
+            //     downloadButton.onclick = function () {
+            //         fetch(mod.url).then(function (response) {
+            //             if (!response.ok) {
+            //                 return false;
+            //             }
+            //             return response.blob();
+            //         }).then(function (myBlob) {
+            //             myBlob.arrayBuffer().then((content) => {
+            //                 var transaction = homepageIndexedDB.transaction("apps", 'readwrite');
+            //                 transaction.oncomplete = function (event) {
+            //                     reloadModList();
+            //                 };
+            //                 transaction.objectStore("apps").add({ config: mod.config, blob: splitModToChunks(new Uint8Array(content)) });
+            //             });
+            //         });
+            //     }
             var deleteButton = newNode.querySelector("#deleteButton");
             if (!mod.blob)
                 deleteButton.style.display = "none";
             else
                 deleteButton.onclick = function () {
-                    var transaction = homepageIndexedDB.transaction("mods", 'readwrite');
+                    var transaction = homepageIndexedDB.transaction("apps", 'readwrite');
                     transaction.oncomplete = function (event) {
                         reloadModList();
                     };
-                    transaction.objectStore("mods").delete(mod.modName);
+                    transaction.objectStore("apps").delete(mod.id);
                 }
-            modSelectorElement.appendChild(newNode);
+            installedAppsElement.appendChild(newNode);
         })
     }
 
@@ -175,24 +183,15 @@ Detailed explanation how mods are executed on web is [here](../../in_depth/web_r
     };
     request.onupgradeneeded = (event) => {
         var db = event.target.result;
-        var objectStore = db.createObjectStore("mods", { keyPath: "modName" });
+        var objectStore = db.createObjectStore("apps", { keyPath: "id" });
 
-        objectStore.createIndex("modName", "modName", { unique: true });
+        objectStore.createIndex("id", "id", { unique: true });
     }
     request.onsuccess = (event) => {
         homepageIndexedDB = event.target.result;
         reloadModList();
     };
 </script>
-
-<div style="position: absolute;left: 0;right: 0;top: 0;">
-    <div class="emscripten">
-        <label id="statusLabel" style="display: none;"></label>
-    </div>
-</div>
-
-<canvas style="height: 100vh;left: 0; top: 0; width:100%" id="canvas" oncontextmenu="event.preventDefault()"  > 
-</canvas>
 
 <script type='text/javascript'>
 window.coi = {
@@ -204,24 +203,13 @@ window.coi = {
 
 <script type='text/javascript'>
     var canvas = document.getElementById('canvas')
-    canvas.style.display = "none";
-    document.body.appendChild(canvas)
+    // canvas.style.display = "none";
+    // document.body.appendChild(canvas)
     // if (!crossOriginIsolated)
     //     window.location.reload();
 
-    var statusLabelElement = document.getElementById('statusLabel');
-
     var Module = {
-        preRun: [
-            function () {
-                FS.mkdir('/webrogue');
-                FS.mount(IDBFS, { root: '/' }, '/webrogue');
-                FS.chdir('/webrogue');
-                FS.syncfs(true, function (err) {
-                    // handle callback
-                });
-            }
-        ],
+        preRun: [],
         postRun: [],
         print: (function () {
             return function (text) {
@@ -239,19 +227,8 @@ window.coi = {
 
             return canvas;
         })(),
-        setStatus: function (text) {
-            if (text == "Running...") text = "Loading webrogue...";
-            statusLabelElement.textContent = text
-        },
+        setStatus: function (text) {},
         totalDependencies: 0,
     };
-    Module.setStatus('Downloading...');
-    window.onerror = function (event) {
-        // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
-        Module.setStatus('Exception thrown, see JavaScript console');
-        Module.setStatus = function (text) {
-            if (text) console.error('[post-exception status] ' + text);
-        };
-    };
 </script>
-<script async type="text/javascript" src="./webrogue_game.js"></script>
+<script async type="text/javascript" src="./webrogue.js"></script>
