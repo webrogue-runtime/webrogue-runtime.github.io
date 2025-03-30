@@ -32,7 +32,7 @@ jobs:
 
     - name: Build demo
       run: |
-        rustup component add rust-src --toolchain nightly-$(uname -i)-unknown-linux-gnu
+        rustup component add rust-src --toolchain nightly-$(uname -m)-unknown-linux-gnu
         git clone https://github.com/emscripten-core/emsdk.git
         ./emsdk/emsdk install latest
         ./emsdk/emsdk activate latest

@@ -176,13 +176,16 @@ Saved WRAPPs:
     }
 
 
-    var request = window.indexedDB.open("webrogueHomepage", 1);
+    var request = window.indexedDB.open("webrogueHomepage", 2);
     request.onerror = (event) => {
         console.error(`Database error: ${event.target.errorCode}`);
         alert(`Database error: ${event.target.errorCode}`);
     };
     request.onupgradeneeded = (event) => {
         var db = event.target.result;
+        if (db.objectStoreNames.contains("apps")) {
+            db.deleteObjectStore("apps");
+        }
         var objectStore = db.createObjectStore("apps", { keyPath: "id" });
 
         objectStore.createIndex("id", "id", { unique: true });
