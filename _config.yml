@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: webrogue
+title: Webrogue
 # email: your-email@example.com
 # description: >- # this means to ignore newlines until "baseurl:"
 #   Write an awesome description for your new site here. You can edit this
@@ -28,15 +28,14 @@ baseurl: '' # the subpath of your site, e.g. /blog
 url: 'https://webrogue-runtime.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 author: 'Artem Borovik'
 # twitter_username: jekyllrb
-github_username: Destructor17
+# github_username: Destructor17
 
 theme: minima
 plugins:
   - jekyll-sitemap
 
 header_pages:
-  - examples/index.md
-  - download.md
+  - demos/dynamic/index.md
 
 exclude:
   - .sass-cache/

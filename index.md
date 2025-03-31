@@ -1,29 +1,28 @@
 ---
 layout: page
-title: Main page
 ---
 
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap;">
+    <image src="icons/logo.png" width="100" height="100" alt=""/>
+    <div style="width: 20px"></div>
+    <h1 class="post-title">Webrogue</h1>
+</div>
+<div style="height: 40px"></div>
 
-> [!WARNING]  
-> This page is outdated. Webrogue is currently being rewritten to Rust and goals slightly changed. New repo is [here](https://github.com/webrogue-runtime/webrogue_rs).
+Webrogue is a way to port applications to different OSes with minimal effort.
+Instead of pinning to one specific programming language, Webrogue utilizes WebAssembly to allow using different programming languages.
 
-Webrogue is a runtime based on WebAssembly. 
-Thanks to its design, webrogue offers the following key advantages:
-- [Portable](benefits/portable.html)
-- [Modular](benefits/modular.html)
-- [Cross-platform](benefits/cross_platform.html)
-- [Programming-language-agnostic](benefits/programming_languages.html)
-- [Bakeable](benefits/bakeable.html)
+The key idea is compiling and packaging applications to OS-independent format called WRAPP (WebRogue APPlication).
+Same WRAPP file can be compiled to multiple OS-native formats.
+Read more about compiling WRAPPs to native formats [here](topics/aot.html).
 
-And of course webrogue is [open source](https://github.com/webrogue-runtime/webrogue).
+Webrogue currently supports:
+- [Windows](topics/platform_windows.html)
+- [macOS](topics/platform_xcode.html)
+- [Linux](topics/platform_linux.html)
+- [Android](topics/platform_android.html)
+- [iOS](topics/platform_xcode.html)
+- [Web](topics/platform_web.html)
 
-Here are two online demos:
-- [Baked log2048 demo](demos/baked_log2048/).
-- [Dynamic demo](demos/dynamic/).
-
-Webrogue is currently in active development and will change significantly(see [goals](goals/)), so it is not recommended for production use. 
-I'm welcome contributions from the community.
-
-It might seem that webrogue depends on browser. 
-It is not so. 
-You can run webrogue without any sort of browser installed, and webrogue does not ships any.
+And of course Webrogue is open source. 
+Visit [Webrogue repo](https://github.com/webrogue-runtime/webrogue) on GitHub.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Dynamic demo
+title: Web runtime
 ---
 
 <div style="display: none;"> <!-- invisible container fore reusable elements -->
@@ -18,7 +18,7 @@ title: Dynamic demo
 </div>
 
 <div id="noJavaScript">
-    Warning! You browser does not supports JavaScript or it is turned off. This demo will not work.
+    Warning! You browser does not supports JavaScript or it is turned off. This runtime will not work.
     <br/><br/>
 </div>
 <script type='text/javascript'>
@@ -26,21 +26,20 @@ title: Dynamic demo
 </script>
 
 <div style="display:none" id="noWebAssembly">
-    Warning! You browser does not supports WebAssembly or it is turned off. This demo will not work.
+    Warning! You browser does not supports WebAssembly or it is turned off. This runtime will not work.
     <br/><br/>
 </div>
 
 
 <div style="display:none" id="noSharedArrayBuffer">
-    Warning! You browser has no SharedArrayBuffer support or it is turned off. This demo will not work.
+    Warning! You browser has no SharedArrayBuffer support or it is turned off. This runtime will not work.
     <br/><br/>
 </div>
 
+This page allows you to upload and run WRAPPs in your browser.
+Read more about how it works [here](../../topics/platform_web.html).
 
-
-This page allows you to upload and run WRAPPs in your browser
-
-Choose a WRAPP to upload: <input type="file" multiple accept=".wrapp" id="fileSelector"/>
+Pick a WRAPP file: <input type="file" multiple accept=".wrapp" id="fileSelector"/>
 
 Saved WRAPPs:
 <table id="installedApps"></table>

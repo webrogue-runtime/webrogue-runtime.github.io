@@ -37,7 +37,7 @@ jobs:
         ./emsdk/emsdk install latest
         ./emsdk/emsdk activate latest
         . ./emsdk/emsdk_env.sh
-        sh demos/dynamic/src/build.sh
+        sh build_static_files.sh
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
