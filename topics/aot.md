@@ -11,7 +11,7 @@ It is done using `webrogue-aot-compiler` utility.
 No third-party tools are required to compile WRAPP to Windows-native executable.
 Just run following command on your Windows, macOS or Linux machine:
 
-```webrogue-aot-compiler windows mingw <WRAPP_PATH> <OUT_PATH>```
+```webrogue-aot-compiler windows msvc <WRAPP_PATH> <OUT_PATH>```
 
 Read more about Windows support [here](platform_windows.html).
 

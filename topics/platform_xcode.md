@@ -32,3 +32,5 @@ If you want to make Xcode project without building apps:
 Resulting project is placed at `<BUILD_DIR>/webrogue.xcodeproj` and can be opened in Xcode.
 
 OpenGL ES emulation is provided by [ANGLE](https://chromium.googlesource.com/angle/angle).
+
+WRAPP is bundled as macOS/iOS resource file.

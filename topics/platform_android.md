@@ -27,3 +27,7 @@ Webrogue links compiled object, static libraries shipped with `webrogue-default-
 TODO check if NDK libraries can also be included in `webrogue-default-runtime`, so developers can build Android Apps without installing NDK at all.
 
 Android devices ships OpenGL ES drives, so no graphics emulation layer is required.
+
+WRAPP is bundled as uncompressed Android asset.
+It means it is not required to unpack it to provide non-sequential access.
+WRAPP itself is a compressed file format, so lack of asset compression doesn't increases resulting APK size.
