@@ -24,5 +24,5 @@ Webrogue currently supports:
 - [iOS](topics/platform_xcode.html)
 - [Web](topics/platform_web.html)
 
-And of course Webrogue is open source. 
+And of cause Webrogue is open source. 
 Visit [Webrogue repo](https://github.com/webrogue-runtime/webrogue) on GitHub.
