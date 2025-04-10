@@ -34,4 +34,4 @@ Resulting project is placed at `<BUILD_DIR>/webrogue.xcodeproj` and can be opene
 
 OpenGL ES emulation is provided by [ANGLE](https://chromium.googlesource.com/angle/angle).
 
-SWRAPP is bundled as macOS/iOS resource file.
+SWRAPP is bundled as resource file.

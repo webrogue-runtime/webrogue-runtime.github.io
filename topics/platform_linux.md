@@ -16,7 +16,7 @@ Currently only x64 CPUs and glibc distros are supported.
 More CPU and distro support will come in future versions.
 
 # Implementation details
-AOT artifacts for Linux are compiled with Clang-16 in Debian "bullseye" Docker image.
+AOT artifacts for Linux are compiled with Clang-19 in Debian "bookworm" Docker image.
 
 Since most Linux distros include Mesa's OpenGL ES drives, no graphics emulation layer is required.
 

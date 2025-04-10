@@ -3,7 +3,7 @@ layout: page
 title: Compiling WRAPPs to native formats
 ---
 
-To distribute your Webrogue application at stores and allow end users to install it with ease, WRAPP should be compiled to OS-native format.
+To publish your Webrogue application in a store and allow end users to install it with ease, WRAPP should be compiled to OS-native format.
 It is done using `webrogue compile` command.
 
 # Windows
@@ -11,7 +11,7 @@ It is done using `webrogue compile` command.
 No third-party tools are required to compile WRAPP to Windows-native executable.
 Just run following command on your Windows, macOS or Linux machine:
 
-```webrogue compile windows msvc <WRAPP_PATH> <OUT_PATH>```
+```webrogue compile windows <WRAPP_PATH> <OUT_PATH>```
 
 Read more about Windows support [here](platform_windows.html).
 
@@ -25,10 +25,10 @@ Read more about Linux support [here](platform_linux.html).
 
 # Android
 
-To compile WRAPP to Android application, you need Android SDK 35 or later and NDK 27.2.12479018 or later.
+To compile WRAPP to Android application, you need Android SDK 35.
 Path to Android SDK should be specified using `--sdk` option or `ANDROID_HOME` environment variable.
 
-`webrogue compile android gradle <WRAPP_PATH> <BUILD_DIR> --sdk <PATH>`
+`webrogue compile android <WRAPP_PATH> <BUILD_DIR> --sdk <PATH>`
 
 Read more about Android support [here](platform_android.html).
 

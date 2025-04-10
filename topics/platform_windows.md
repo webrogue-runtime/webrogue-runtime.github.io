@@ -24,11 +24,10 @@ AArch64 CPUs will be supported in future versions.
 Windows versions older then Windows 10 are not supported, and not likely to be supported in nearest future.
 
 # Implementation details
-AOT artifacts for Windows are cross-compiled with Clang-cl and MSVC toolchain.
+AOT artifacts for Windows are compiled using official MSVC toolchain.
 CRT is linked statically.
 
 OpenGL ES emulation is provided by [ANGLE](https://chromium.googlesource.com/angle/angle).
 ANGLE is bundled as libGLESv2.dll and libEGL.dll files, and they must be in same directory as resulting .exe file.
 
-SWRAPP is bundled as separate file.
-It is temporal approach before I will manage to efficiently embed WRAPP into resulting binary.
+SWRAPP is bundled by appending it's content to resulting binary.
