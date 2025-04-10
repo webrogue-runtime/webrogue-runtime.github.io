@@ -11,7 +11,7 @@ You help is welcome!
 All utilities needed to compile Windows-native executables are already included in `webrogue`.
 It means you don't even need Windows to compile for Windows, simply run the following command:
 
-```webrogue compile windows msvc <WRAPP_PATH> <OUT_PATH>```
+```webrogue compile windows <WRAPP_PATH> <OUT_PATH>```
 
 `--console` option allows stdin/stdout/stderr to work. 
 It also makes console window appear, so this option is disabled by default.
