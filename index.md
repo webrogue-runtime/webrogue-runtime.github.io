@@ -11,6 +11,7 @@ layout: page
 
 Webrogue is a way to port applications to different OSes with minimal effort.
 Instead of pinning to one specific programming language, Webrogue utilizes WebAssembly to allow using different programming languages.
+See [guides](topics/guides.html).
 
 The key idea is compiling and packaging applications to OS-independent format called WRAPP (WebRogue APPlication).
 Same WRAPP file can be compiled to multiple OS-native formats.
