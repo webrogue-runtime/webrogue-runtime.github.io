@@ -35,6 +35,7 @@ plugins:
   - jekyll-sitemap
 
 header_pages:
+  - topics/guides.md
   - demos/dynamic/index.md
 
 exclude:

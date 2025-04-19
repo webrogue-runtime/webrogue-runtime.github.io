@@ -1,6 +1,6 @@
 ---
 layout: page
-title: From zero to WRAPP C++ example
+title: C++/CMake/VSCode guide
 ---
 
 This guide will show how to build a simple WRAPP using C++, CMake, and Visual Studio Code.
@@ -75,7 +75,7 @@ Now we need to configure CMake project.
 CMake logo (triangle and wrench) should already appear on the left bar.
 Ensure that "Webrogue WASIp1-threads" kit is selected under "configure" section, then press "configure" icon (file and arrow right) or run "CMake: configure" command.
 
-To make build process easier, we will create two VSCode task to automatically build and package our WRAPP.
+To make build process easier, we will create two VSCode task to automatically build CMake project.
 Add these two records to `.vscode/tasks.json` (create this file if it not already exists):
 ```
 {
@@ -91,19 +91,6 @@ Add these two records to `.vscode/tasks.json` (create this file if it not alread
             "group": "build",
             "problemMatcher": [],
             "detail": "CMake template build task"
-        },
-        {
-            "type": "webrogue",
-            "config": "${workspaceFolder}",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "label": "webrogue: pack",
-            "dependsOn": [
-                "CMake: build"
-            ]
         }
     ]
 }
@@ -120,10 +107,11 @@ And finally `.vscode/launch.json` file:
             "program": "<replace me>",
             "args": [
                 "run",
-                "${workspaceFolder}/out.wrapp"
+                "--config",
+                "${workspaceFolder}/webrogue.json"
             ],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "webrogue: pack"
+            "preLaunchTask": "CMake: build"
         }
     ]
 }
@@ -132,7 +120,19 @@ A tricky part there is that we need to replace `<replace me>` string with path t
 Run `Copy path to Webrogue binary` command and paste copied path instead of placeholder.
 On Windows backslash `\` delimiters must be replaced with double backslashes `\\`.
 
-Now we are ready to run our WRAPP.
+At this point we are ready to run our applications.
 Just press F5 or use any other means to start launch task.
 Our program should print `Hello World` string to terminal.
 Breakpoints should also work.
+
+## Packaging WRAPP file and building native apps
+
+Simplest way to package WRAPP file is to use `Pack Webrogue configuration into WRAPP` command.
+A task with same name also exists.
+
+When WRAPP is build, just open it in VSCode.
+GUI with a few buttons should appear, allowing you to build native apps.
+While Webrogue CLI utility supports 5 operation systems, this GUI currently supports only 2 of them: Windows and Linux.
+
+Note: while building Windows app, libGLESv2.dll and libEGL.dll files will appear.
+They must be bundled with with resulting out.exe file, otherwise it will crash.

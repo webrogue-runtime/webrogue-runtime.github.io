@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Webrogue guides
+title: Guides
 ---
 
-- [C++/CMake/VSCode guide with installation steps](./example_language_cpp.html)
+- [C++/CMake/VSCode guide](./example_language_cpp.html) with installation steps
