@@ -118,5 +118,5 @@ It will take some time for first build, but subsequent builds will take only a f
 
 ## macOS and iOS
 
-Webrogue support for macOS and iOS is work-in-progress.
+macOS and iOS support is currently work-in-progress.
 In any way you will need an Apple Developer account (paid) and macOS device or CI/CD with Xcode installed to support macOS and iOS.
