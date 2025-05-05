@@ -23,7 +23,7 @@ Webrogue currently supports:
 - [Linux](topics/platform_linux.html)
 - [Android](topics/platform_android.html)
 - [iOS](topics/platform_xcode.html)
-- [Web](topics/platform_web.html)
+<!-- - [Web](topics/platform_web.html) -->
 
 And of cause Webrogue is open source. 
 Visit [Webrogue repo](https://github.com/webrogue-runtime/webrogue) on GitHub.

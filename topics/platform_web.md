@@ -3,10 +3,11 @@ layout: page
 title: Web support for Webrogue
 ---
 
-Since Webrogue uses WebAssembly to store application's code, it is possible to run WRAPPs right in your browser.
-[This web runtime](../demos/dynamic/index.html) demonstrates this feature.
-Currently it allows you only to pick a WRAPP file and run it.
-Code runs completely locally.
+Since Webrogue uses WebAssembly to store application's code, it is possible to run WRAPPs right in browser.
+<!-- [This web runtime](../demos/dynamic/index.html) demonstrates this feature. -->
+Sad thing is that Emscripten's OpenGL ES implementation seems to be non-conformant, so must apps will simply draw solid color.
+<!-- Currently it allows you only to pick a WRAPP file and run it. -->
+<!-- Code runs completely locally. -->
 
 # Implementation details
 

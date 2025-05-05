@@ -99,8 +99,9 @@ If not, build this project first.
 Now run `Webrogue: Pack into WRAPP` command and select `./webrogue.json` file.
 `out.wrapp` file should appear.
 Select it and press `Run and debug` button in `General` tab.
-Our application will launch in debug mode just like using VSCode config, but `out.wrapp` file contains not only compiled code, but also Webrogue application configuration, icons and resources like `/app/FreeSans.otf`.
-You can move this file to different directory or even sent it to machine with different OS, and Webrogue will still be able to run it.
+Our application will launch in debug mode just like using VSCode config.
+`out.wrapp` file contains not only compiled code, but also Webrogue application configuration, icons and resources like `/app/FreeSans.otf`.
+You can move this file to different directory or even send it to machine with different OS, and Webrogue will still be able to run it.
 
 ## Windows and Linux
 

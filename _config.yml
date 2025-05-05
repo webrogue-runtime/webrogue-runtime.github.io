@@ -36,7 +36,7 @@ plugins:
 
 header_pages:
   - topics/guides.md
-  - demos/dynamic/index.md
+  # - demos/dynamic/index.md
 
 exclude:
   - .sass-cache/
