@@ -3,4 +3,5 @@ layout: page
 title: Guides
 ---
 
-- [C++/CMake/VSCode guide](./example_language_cpp.html) with installation steps
+- [C++/CMake/VSCode guide](./guides/cpp.html) with installation steps
+- [C/SDL/packaging guide](./guides/sdl.html)
