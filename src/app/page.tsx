@@ -3,9 +3,8 @@ import { getConverted } from "@/markdown";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const markdown = await getConverted(["index"]);
   return {
-    title: markdown.title,
+    title: "Webrogue",
   }
 }
 
