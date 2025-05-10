@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #fff;
+  --code-background: #eee;
+  --foreground: #111;
+  --border: #bbb;
+  --soft-foreground: #555;
+}
+
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+} */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e1e1e;
+    --code-background: #181818;
+    --foreground: #fff;
+    --border: #444;
+    --soft-foreground: #ddd;
+  }
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  min-height: 54px;
+}
+
+a.rootRef {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+}
+
+nav {
+  float: right;
+}
+
+a.navRef {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 54px;
+}
+
+a {
+  &:hover {
+    text-decoration: underline;
+  }
+
+  color: var(--soft-foreground);
+  text-decoration-color: currentcolor;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+main {
+  padding-bottom: 100px;
+}
+
+/* footer {
+  min-height: 80px;
+} */
+
+.width-limited {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+
+h1 {
+  font-size: 38px;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-weight: 400;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+p {
+  padding-top: 16px;
+}
+
+ul {
+  margin-left: 32px
+}
+
+li::marker {
+  content: "• ";
+}
+
+.codeBlock {
+  padding: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: var(--code-background);
+}
+
+a.pageRef {
+  color: #3080e0;
+
+  &:visited {
+    color: #802080;
+  }
+}
+
+.codeInline {
+  padding: 4px;
+  border-radius: 4px;
+  background-color: var(--code-background);
+}
+
+code {
+  font-size: 16;
+}
+
+pre {
+  text-wrap: initial;
+}
+
+img.mdImage {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+div.logoContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 32px;
+}
