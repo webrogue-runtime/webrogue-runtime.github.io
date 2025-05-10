@@ -90,7 +90,7 @@ main {
 } */
 
 .width-limited {
-  max-width: 800px;
+  max-width: 900px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 32px;

@@ -65,7 +65,7 @@ Read more about macOS and iOS support [here](platform_xcode).
 
 ## Implementation details
 
-Webrogue compiles WebAssembly code Ahead-Of-Time (AOT) using Wasmtime and Cranelift.
+Webrogue compiles WebAssembly code Ahead-of-Time (AoT) using Wasmtime and Cranelift.
 This approach combines fastest code loading, near-native execution speed and relatively low resulting binary size.
 Webrogue generates object file in platform-native format, which is later linked with prebuilt Webrogue libraries as well as system libraries using [LLD](https://lld.llvm.org/) shipped with Webrogue CLI utility (or using Xcode's one), and all these things are done by just running one command.
 Webrogue also automatically generates such resources as application name, ID, version, icons and splash screens form WRAPP config.

@@ -16,7 +16,7 @@ More CPU and distro support will arrive in future versions.
 
 ## Implementation details
 
-AOT artifacts for Linux are compiled with GCC-14 in "manylinux" Docker image.
+AoT artifacts for Linux are compiled with GCC-14 in "manylinux" Docker image.
 
 Since most Linux distros include Mesa's OpenGL ES drives, no graphics emulation layer is required.
 

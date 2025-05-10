@@ -26,3 +26,7 @@ Webrogue currently supports:
 And of cause Webrogue is open source. 
 Visit [Webrogue repo](https://github.com/webrogue-runtime/webrogue) on GitHub.
 
+## Installing Webrogue
+
+Webrogue extension for VSCode can be found [here](https://marketplace.visualstudio.com/items?itemName=webrogue.webrogue-vscode).
+Alternatively you can download [Webrogue CLI utility](https://github.com/webrogue-runtime/webrogue) and [Webrogue SDK](https://github.com/webrogue-runtime/webrogue-sdk) releases from GitHub.

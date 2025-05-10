@@ -24,7 +24,7 @@ Windows versions older then Windows 10 are not supported, and not likely to be s
 
 ## Implementation details
 
-AOT artifacts for Windows are compiled using official MSVC toolchain.
+AoT artifacts for Windows are compiled using official MSVC toolchain.
 CRT is linked statically.
 
 OpenGL ES emulation is provided by [ANGLE](https://chromium.googlesource.com/angle/angle).
