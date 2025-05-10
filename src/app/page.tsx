@@ -1,5 +1,4 @@
 import { MarkdownPage } from "@/components/markdown_page";
-import { getConverted } from "@/markdown";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
