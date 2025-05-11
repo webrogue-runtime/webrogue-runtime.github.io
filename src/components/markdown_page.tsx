@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono';
 import Image from "next/image";
 import { getConverted } from "@/markdown";
 import { getRelPath } from "@/markdown/convert";
+import { Metadata } from "next";
 
 function ParagraphElementView(element: markdown.ParagraphElement, index: number): JSX.Element | string {
   let result;
@@ -104,6 +105,18 @@ function MarkdownElementView(
         className="mdImage"
       ></Image>
     }
+  }
+}
+
+export async function MarkdownPageMetadata(
+  path: string[], options: {
+    title?: string
+  }
+): Promise<Metadata> {
+  const markdown = await getConverted(path);
+  return {
+    title: options?.title ?? markdown.title,
+    icons: "/favicon.ico"
   }
 }
 

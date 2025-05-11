@@ -1,10 +1,8 @@
-import { MarkdownPage } from "@/components/markdown_page";
+import { MarkdownPage, MarkdownPageMetadata } from "@/components/markdown_page";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Webrogue",
-  }
+  return MarkdownPageMetadata(["index"], { title: "Webrogue" });
 }
 
 export default async function Home() {

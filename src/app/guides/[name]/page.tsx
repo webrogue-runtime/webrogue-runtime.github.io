@@ -1,5 +1,5 @@
-import { MarkdownPage } from "@/components/markdown_page";
-import { getConverted, parseAll } from "@/markdown";
+import { MarkdownPage, MarkdownPageMetadata } from "@/components/markdown_page";
+import { parseAll } from "@/markdown";
 import { Metadata } from "next";
 
 interface Guide {
@@ -17,11 +17,8 @@ export async function generateMetadata({
 }: {
   params: Promise<Guide>
 }): Promise<Metadata> {
-  const post = await params
-  const markdown = await getConverted(["guides", post.name]);
-  return {
-    title: markdown.title,
-  }
+  const guide = await params;
+  return MarkdownPageMetadata(["guides", guide.name], { title: "Webrogue" });
 }
 
 export default async function Page({
@@ -29,7 +26,7 @@ export default async function Page({
 }: {
   params: Promise<Guide>
 }) {
-  const post = await params;
+  const guide = await params;
 
-  return MarkdownPage(["guides", post.name]);
+  return MarkdownPage(["guides", guide.name]);
 }

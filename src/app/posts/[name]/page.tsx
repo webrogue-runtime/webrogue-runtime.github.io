@@ -1,5 +1,5 @@
-import { MarkdownPage } from "@/components/markdown_page";
-import { getConverted, parseAll } from "@/markdown";
+import { MarkdownPage, MarkdownPageMetadata } from "@/components/markdown_page";
+import { parseAll } from "@/markdown";
 import { Metadata } from "next";
 
 interface Post {
@@ -18,10 +18,7 @@ export async function generateMetadata({
   params: Promise<Post>
 }): Promise<Metadata> {
   const post = await params
-  const markdown = await getConverted(["posts", post.name]);
-  return {
-    title: markdown.title,
-  }
+  return MarkdownPageMetadata(["posts", post.name], { title: "Webrogue" });
 }
 
 export default async function Page({
