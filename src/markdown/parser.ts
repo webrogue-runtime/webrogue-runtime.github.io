@@ -141,7 +141,7 @@ export async function parse(
             index++;
             continue;
         }
-        if (char === "#") {
+        if (char === "#" && ((lastNewline === (index - 2)) || lastNewline === (index - 1) || lastNewline === null)) {
             let hashCount = 1;
             while (file[index + hashCount] === "#") {
                 hashCount++;
