@@ -2,31 +2,31 @@ import { MarkdownPage, MarkdownPageMetadata } from "@/components/markdown_page";
 import { parseAll } from "@/markdown";
 import { Metadata } from "next";
 
-interface Post {
+interface Doc {
   name: string
 }
 
-export async function generateStaticParams(): Promise<Post[]> {
+export async function generateStaticParams(): Promise<Doc[]> {
   return (await parseAll())
-    .filter(entry => entry.markdown.webPathComponents[0] === "posts")
+    .filter(entry => entry.markdown.webPathComponents[0] === "docs")
     .map(entry => { return { name: entry.markdown.webPathComponents[1] } });
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Post>
+  params: Promise<Doc>
 }): Promise<Metadata> {
-  const post = await params
-  return MarkdownPageMetadata(["posts", post.name], { title: "Webrogue" });
+  const doc = await params
+  return MarkdownPageMetadata(["docs", doc.name], { title: "Webrogue" });
 }
 
 export default async function Page({
   params,
 }: {
-  params: Promise<Post>
+  params: Promise<Doc>
 }) {
-  const post = await params;
+  const doc = await params;
 
-  return MarkdownPage(["posts", post.name]);
+  return MarkdownPage(["docs", doc.name]);
 }

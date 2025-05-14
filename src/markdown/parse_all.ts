@@ -23,11 +23,11 @@ export async function parseAll(): Promise<ParseAllEntry[]> {
 
     await addPaths(["index"], ["external", "webrogue", "README"]);
 
-    const postsDirPath = path.join(process.cwd(), "posts");
-    const postFileNames = fs.readdirSync(postsDirPath);
+    const docsDirPath = path.join(process.cwd(), "external", "webrogue", "docs");
+    const docsFileNames = fs.readdirSync(docsDirPath);
 
-    for (const postFile of postFileNames.filter(postFileNames => postFileNames.endsWith(".md"))) {
-        await addRootMD(["posts", postFile.slice(0, -3)]);
+    for (const postFile of docsFileNames.filter(docsFileNames => docsFileNames.endsWith(".md"))) {
+        await addPaths(["docs", postFile.slice(0, -3)], ["external", "webrogue", "docs", postFile.slice(0, -3)]);
     }
 
     const guidesDirPath = path.join(process.cwd(), "guides");
