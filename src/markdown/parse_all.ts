@@ -9,14 +9,19 @@ export interface ParseAllEntry {
 
 export async function parseAll(): Promise<ParseAllEntry[]> {
     const result: ParseAllEntry[] = [];
-    async function addRootMD(pathComponents: string[]) {
+
+    async function addPaths(pathComponents: string[], realPathComponents: string[]) {
         result.push({
             path: pathComponents.join("/"),
-            markdown: await parse(pathComponents, getRootMDPath(pathComponents))
+            markdown: await parse(pathComponents, getRootMDPath(realPathComponents))
         })
     }
 
-    await addRootMD(["index"]);
+    async function addRootMD(pathComponents: string[]) {
+        await addPaths(pathComponents, pathComponents)
+    }
+
+    await addPaths(["index"], ["external", "webrogue", "README"]);
 
     const postsDirPath = path.join(process.cwd(), "posts");
     const postFileNames = fs.readdirSync(postsDirPath);

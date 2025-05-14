@@ -1,0 +1,53 @@
+name: Main workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 11 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    permissions:
+      pages: write
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Update Submodule
+      id: update_submodule
+      run: |
+        git submodule update --init external/webrogue
+        git -C external/webrogue checkout origin/main
+        git add external/webrogue
+        git commit -m "Update Webrogue submodule" && git push && echo "should_build=true" >> "$GITHUB_OUTPUT" || echo "should_build=false" >> "$GITHUB_OUTPUT"
+
+    - name: Setup Pages
+      # TODO reuse this condition
+      if: steps.update_submodule.outputs.should_build == 'true' || github.event_name == 'push'
+      uses: actions/configure-pages@v4
+
+    - name: Build 
+      if: steps.update_submodule.outputs.should_build == 'true' || github.event_name == 'push'
+      run: |
+        npm install
+        sh build.sh
+
+    - name: Upload Pages artifact
+      if: steps.update_submodule.outputs.should_build == 'true' || github.event_name == 'push'
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: out/
+
+    - name: Deploy to GitHub Pages
+      if: steps.update_submodule.outputs.should_build == 'true' || github.event_name == 'push'
+      id: deployment
+      uses: actions/deploy-pages@v4

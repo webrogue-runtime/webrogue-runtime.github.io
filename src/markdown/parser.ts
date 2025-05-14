@@ -35,14 +35,29 @@ export async function parse(
             }
         }
         if (char == "[") {
-            const closingSquareBrackets = file.indexOf("]", index);
+            let bracketLevel = 1;
+            let openingSquareBrackets = index;
+            let closingSquareBrackets = null;
+            do {
+                index++;
+                if (file[index] === undefined) {
+                    throw Error("Unterminated link")
+                }
+                if (file[index] === "[") {
+                    bracketLevel++;
+                }
+                if (file[index] === "]") {
+                    bracketLevel--;
+                }
+            } while (bracketLevel !== 0);
+            closingSquareBrackets = index;
             if (closingSquareBrackets !== -1 && file[closingSquareBrackets + 1] === "(") {
-                const closingParentheses = file.indexOf(")", index);
+                const closingParentheses = file.indexOf(")", closingSquareBrackets);
                 if (closingParentheses !== -1) {
 
                     const link = file.slice(closingSquareBrackets + 2, closingParentheses);
-                    const linkText = file.slice(index + 1, closingSquareBrackets);
-                    if (file[index - 1] === "!") {
+                    const linkText = file.slice(openingSquareBrackets + 1, closingSquareBrackets);
+                    if (file[openingSquareBrackets - 1] === "!") {
                         if (currentElement) {
                             result.push(currentElement)
                         }
@@ -62,14 +77,16 @@ export async function parse(
                             link: link,
                             linkText: linkText
                         }
-                        switch (currentElement.type) {
-                            case "paragraph": {
-                                currentElement.paragraphElements.push(linkElement)
-                                break;
-                            }
-                            case "list": {
-                                currentElement.items[currentElement.items.length - 1].listElements.push(linkElement);
-                                break;
+                        if (!linkText.startsWith("!")) {
+                            switch (currentElement.type) {
+                                case "paragraph": {
+                                    currentElement.paragraphElements.push(linkElement)
+                                    break;
+                                }
+                                case "list": {
+                                    currentElement.items[currentElement.items.length - 1].listElements.push(linkElement);
+                                    break;
+                                }
                             }
                         }
                     }
