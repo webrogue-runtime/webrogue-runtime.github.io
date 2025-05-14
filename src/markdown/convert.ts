@@ -51,14 +51,32 @@ export async function getConverted(path: string[]): Promise<types.Markdown> {
         element: types.ParagraphElement,
     ) {
         if (element.type !== "link") { return }
-        if (element.link.startsWith("https://")) { return }
 
         const thisPath = result!.markdown.webPathComponents.slice(0, -1);
-        const newPath = [...thisPath];
-        for (const part of element.link.split("/")) {
-            if (part === ".") continue;
-            if (part === "") continue;
-            newPath.push(part);
+        let newPath = [...thisPath];
+        let link = element.link;
+
+        const replacements: [string, string[]][] = [
+            ["https://webrogue.dev/guides/", ["guides"]]
+        ];
+        let hadReplacement = false;
+        for (const replacement of replacements) {
+            if (link.startsWith(replacement[0])) {
+                newPath = [...replacement[1]];
+                link = link.substring(replacement[0].length);
+                hadReplacement = true;
+            }
+        }
+        if (element.link.startsWith("https://") && !hadReplacement) { return }
+
+        if (hadReplacement && link === "") {
+            newPath.push("index");
+        } else {
+            for (const part of link.split("/")) {
+                if (part === ".") continue;
+                if (part === "") continue;
+                newPath.push(part);
+            }
         }
         element.link = getRelPath(result!.markdown.webPathComponents, newPath);
     }
