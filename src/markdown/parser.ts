@@ -36,7 +36,7 @@ export async function parse(
         }
         if (char == "[") {
             let bracketLevel = 1;
-            let openingSquareBrackets = index;
+            const openingSquareBrackets = index;
             let closingSquareBrackets = null;
             do {
                 index++;

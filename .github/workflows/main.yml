@@ -28,6 +28,8 @@ jobs:
         git submodule update --init external/webrogue
         git -C external/webrogue checkout origin/main
         git add external/webrogue
+        git config --global user.email "webrogue-runtime@users.noreply.github.com"
+        git config --global user.name "webrogue-runtime"
         git commit -m "Update Webrogue submodule" && git push && echo "should_build=true" >> "$GITHUB_OUTPUT" || echo "should_build=false" >> "$GITHUB_OUTPUT"
 
     - name: Setup Pages
