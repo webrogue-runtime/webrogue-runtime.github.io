@@ -55,6 +55,7 @@ export type MarkdownElement = Paragraph | List | Header | Code | Comment | Image
 
 export interface Markdown {
     webPathComponents: string[],
+    url: string,
     title: string | null,
     elements: MarkdownElement[]
 }

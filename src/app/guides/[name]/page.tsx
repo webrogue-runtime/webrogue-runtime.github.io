@@ -18,7 +18,7 @@ export async function generateMetadata({
   params: Promise<Guide>
 }): Promise<Metadata> {
   const guide = await params;
-  return MarkdownPageMetadata(["guides", guide.name], { title: "Webrogue" });
+  return MarkdownPageMetadata(["guides", guide.name], {});
 }
 
 export default async function Page({

@@ -116,7 +116,10 @@ export async function MarkdownPageMetadata(
   const markdown = await getConverted(path);
   return {
     title: options?.title ?? markdown.title,
-    icons: "/favicon.ico"
+    icons: "/favicon.ico",
+    alternates: {
+      canonical: markdown.url,
+    }
   }
 }
 

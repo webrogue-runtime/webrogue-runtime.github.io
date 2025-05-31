@@ -9,7 +9,12 @@ export async function parse(
         mdPath,
         "utf8"
     );
-
+    let url = 'https://webrogue.dev/' + pathComponents.join("/");
+    if (url.endsWith("/index")) {
+        url = url.slice(0, url.length - "index".length);
+    } else {
+        url += ".html"
+    }
     let result = [];
     let currentElement: types.MarkdownElement | null = null;
     let lastNewline: number | null = null;
@@ -332,6 +337,7 @@ export async function parse(
         });
     return {
         webPathComponents: pathComponents,
+        url: url,
         title: pageTitle,
         elements: result
     };
