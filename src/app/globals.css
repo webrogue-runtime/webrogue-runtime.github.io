@@ -107,6 +107,10 @@ h1 {
   margin-bottom: 16px;
 }
 
+h1.notFound {
+  font-size: 120px;
+}
+
 h2 {
   font-size: 28px;
   font-weight: 400;
@@ -169,4 +173,13 @@ div.logoContainer {
   justify-content: center;
   flex-wrap: wrap;
   padding: 32px;
+}
+
+div.notFoundContainer {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
