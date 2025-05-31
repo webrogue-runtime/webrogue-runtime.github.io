@@ -26,12 +26,9 @@ figure {
   --foreground: #111;
   --border: #bbb;
   --soft-foreground: #555;
+  --link: #04a;
+  --visited-link: #828;
 }
-
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -40,6 +37,8 @@ figure {
     --foreground: #fff;
     --border: #444;
     --soft-foreground: #ddd;
+    --link: #5af;
+    --visited-link: #c2c;
   }
 }
 
@@ -139,10 +138,10 @@ li::marker {
 }
 
 a.pageRef {
-  color: #3080e0;
+  color: var(--link);
 
   &:visited {
-    color: #802080;
+    color: var(--visited-link);
   }
 }
 

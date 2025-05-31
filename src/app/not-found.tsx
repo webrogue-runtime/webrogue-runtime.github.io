@@ -1,4 +1,3 @@
-import { MarkdownPage, MarkdownPageMetadata } from "@/components/markdown_page";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
